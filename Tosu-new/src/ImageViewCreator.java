@@ -2,15 +2,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class ImageViewCreator {
-	public static ImageView mainMenuBGCreate(double width, double height)
+	public static ImageView fullscreenImageCreate(double width, double height, String url)
 	{
-		Image mainMenuBG = new Image("/MainMenuBG.jpg");
-        ImageView mainMenuBGView = new ImageView(mainMenuBG);
-        mainMenuBGView.setSmooth(true);
-        mainMenuBGView.setCache(true);
-        mainMenuBGView.setPreserveRatio(false);
-        mainMenuBGView.setFitWidth(width);
-        mainMenuBGView.setFitHeight(height);
-        return mainMenuBGView;
+		Image image = new Image(url);
+        ImageView imageView = new ImageView(image);
+        imageView.setSmooth(true);
+        imageView.setCache(true);
+        imageView.setPreserveRatio(false);
+        imageView.setFitWidth(width);
+        imageView.setFitHeight(height);
+        return imageView;
 	}
 }

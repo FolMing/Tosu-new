@@ -22,7 +22,7 @@ public class Main extends Application {
         double screenWidth = screenBounds.getWidth();
         double screenHeight = screenBounds.getHeight() - 20;
         
-        ImageView mainMenuBGView = ImageViewCreator.mainMenuBGCreate(screenWidth, screenHeight);
+        ImageView mainMenuBGView = ImageViewCreator.fullscreenImageCreate(screenWidth, screenHeight, "/MainMenuBG.jpg");
         
         root.getChildren().add(mainMenuBGView);
 
