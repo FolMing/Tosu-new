@@ -79,6 +79,10 @@
 <img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Activity ingame rename.PNG"></img>
 #### <a name="P2.2">2.2. Начать игру</a>
 <img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Activity play.PNG"></img>
+#### <a name="P2.3">2.3. Изменение громкости музыки</a>
+<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Activity volume.PNG"></img>
+#### <a name="P2.4">2.4. Отключение или включение видеороликов</a>
+<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Activity videos.PNG"></img>
 ## <a name="P3">3. Диаграммы последовательности</a>
 ## <a name="P4">4. Диаграммы состояний</a>
 ## <a name="P5">5. Диаграммы классов</a>
