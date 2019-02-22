@@ -77,6 +77,8 @@
 ## <a name="P2">2. Диаграммы деятельности</a>
 #### <a name="P2.1">2.1. Изменение имени пользователя</a>
 <img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Activity ingame rename.PNG"></img>
+#### <a name="P2.2">2.2. Начать игру</a>
+<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Activity play.PNG"></img>
 ## <a name="P3">3. Диаграммы последовательности</a>
 ## <a name="P4">4. Диаграммы состояний</a>
 ## <a name="P5">5. Диаграммы классов</a>
