@@ -84,6 +84,7 @@
 #### <a name="P2.5">2.5. Выход из приложения</a>
 <img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Activity exit.PNG"></img>
 ## <a name="P3">3. Диаграммы последовательности</a>
+<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Sequence.PNG"></img>
 ## <a name="P4">4. Диаграммы состояний</a>
 ## <a name="P5">5. Диаграммы классов</a>
 ## <a name="P6">6. Структурная диаграмма</a>
