@@ -18,6 +18,7 @@
 | Термин | Описание |
 | :-------: | :-------: |
 ## <a name="P1">1. Диаграмма использования</a>
+<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Use-case.PNG"></img>
 ### <a name="P1.1">1.1 Описание актёров</a>
 | Актёр | Описание |
 | :-------: | :-------: |
