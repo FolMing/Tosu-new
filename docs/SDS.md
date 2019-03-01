@@ -89,3 +89,4 @@
 <img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/State.PNG"></img>
 ## <a name="P5">5. Диаграммы классов</a>
 ## <a name="P6">6. Структурная диаграмма</a>
+<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Deployment.PNG"></img>
