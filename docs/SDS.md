@@ -86,6 +86,6 @@
 ## <a name="P3">3. Диаграммы последовательности</a>
 <img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/Sequence.png"></img>
 ## <a name="P4">4. Диаграммы состояний</a>
-<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/State.png"></img>
+<img src="https://github.com/FolMing/Tosu-new/blob/master/docs/img/State.PNG"></img>
 ## <a name="P5">5. Диаграммы классов</a>
 ## <a name="P6">6. Структурная диаграмма</a>
