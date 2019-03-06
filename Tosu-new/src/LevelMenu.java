@@ -1,6 +1,7 @@
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -39,10 +40,17 @@ public class LevelMenu {
 
 		VBox vbox = new VBox();
 
-		for (int i = 0; i < LevelDirectories.getLevelDirs().length; i++)
-		{
-			Button button = new Button(LevelDirectories.getLevelDirs()[i]);
-			vbox.getChildren().add(button);
+		try {
+			for (int i = 0; i < LevelDirectories.getLevelDirs().length; i++)
+			{
+				Button button = new Button(LevelDirectories.getLevelDirs()[i]);
+				vbox.getChildren().add(button);
+			}
+		}
+		catch (NullPointerException e) {
+			Label label = new Label("No maps");
+			label.setFont(new javafx.scene.text.Font("Arial", 100));
+			vbox.getChildren().add(label);
 		}
 
 		backButton.onMouseExitedProperty().set(new EventHandler<MouseEvent>() {

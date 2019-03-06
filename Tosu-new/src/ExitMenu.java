@@ -1,10 +1,12 @@
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 
 public class ExitMenu {
 	private static Scene scene;
@@ -17,6 +19,12 @@ public class ExitMenu {
 		root.getChildren().add(background);
 
 		Pane pane = new Pane();
+
+		Label questionLabel = new Label("Do you want to exit the game?");
+		questionLabel.setFont(new javafx.scene.text.Font("Arial", 70));
+		questionLabel.setTextFill(Color.WHITE);
+		questionLabel.setLayoutX(180);
+		questionLabel.setLayoutY(120);
 
 		ImageView yesButton = ImageViewCreator.Create("Exit Menu/ExitYes.jpg", 700, 70);
 		yesButton.setLayoutX(290);
@@ -40,7 +48,7 @@ public class ExitMenu {
 			}
 		});
 
-		pane.getChildren().addAll(yesButton, noButton);
+		pane.getChildren().addAll(questionLabel, yesButton, noButton);
 
 		root.getChildren().add(pane);
 
