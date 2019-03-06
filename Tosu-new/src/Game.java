@@ -45,6 +45,10 @@ public class Game {
 		scoreLabel.setLayoutX(0);
 		scoreLabel.setLayoutY(0);
 
+		ImageView background = ImageViewCreator.Create("Game screen/Background.jpg", 1300, 720);
+
+		root.getChildren().add(background);
+
 		ImageView catcher = ImageViewCreator.Create("Game screen/Catcher.png", 270, 180);
 		catcher.setLayoutX(500);
 		catcher.setLayoutY(550);
@@ -66,6 +70,7 @@ public class Game {
 
 		MediaPlayer videoMediaPlayer = new MediaPlayer(videoMedia);
 		MediaView videoMediaView = new MediaView(videoMediaPlayer);
+		videoMediaPlayer.setVolume(MainClass.getVolume() / 100.0);
 		videoMediaView.setPreserveRatio(true);
 		videoMediaView.setFitHeight(720);
 
