@@ -25,6 +25,14 @@ public class LevelMenu {
 		backButton.setLayoutX(-100);
 		backButton.setLayoutY(623);
 
+		ImageView modsButton = ImageViewCreator.Create("Level Menu/mods_off.png", 57, 70);
+		modsButton.setLayoutX(305);
+		modsButton.setLayoutY(623);
+
+		ImageView randomButton = ImageViewCreator.Create("Level Menu/random_off.png", 57, 70);
+		randomButton.setLayoutX(363);
+		randomButton.setLayoutY(623);
+
 		ScrollPane scrollPane = new ScrollPane();
 		scrollPane.setPrefViewportHeight(610);
 		scrollPane.setPrefViewportWidth(1260);
@@ -58,9 +66,51 @@ public class LevelMenu {
 			}
 		});
 
+		modsButton.onMouseExitedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				modsButton.setImage(new Image("Level Menu/mods_off.png"));
+			}
+		});
+
+		modsButton.onMouseEnteredProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				modsButton.setImage(new Image("Level Menu/mods_on.png"));
+			}
+		});
+
+		modsButton.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				MainClass.getPrimaryStage().setScene(ModMenu.getScene());
+			}
+		});
+
+		randomButton.onMouseExitedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				randomButton.setImage(new Image("Level Menu/random_off.png"));
+			}
+		});
+
+		randomButton.onMouseEnteredProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				randomButton.setImage(new Image("Level Menu/random_on.png"));
+			}
+		});
+/*
+		backButton.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				MainClass.getPrimaryStage().setScene(MainMenu.getScene());
+			}
+		});
+*/
 		scrollPane.setContent(vbox);
 
-		pane.getChildren().addAll(backButton, scrollPane);
+		pane.getChildren().addAll(modsButton, randomButton, backButton, scrollPane);
 
 		root.getChildren().add(pane);
 

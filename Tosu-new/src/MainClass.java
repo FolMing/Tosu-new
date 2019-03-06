@@ -18,7 +18,7 @@ public class MainClass {
 		new ExitMenu();
 		new OptionsMenu();
 		new LevelMenu();
-
+		new ModMenu();
 
 		primaryStage.setScene(MainMenu.getScene());
 		primaryStage.show();
