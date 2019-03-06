@@ -10,11 +10,14 @@ public class MainClass {
 
 		primaryStage.setTitle("Tosu!");
 		primaryStage.setResizable(false);
+		primaryStage.setWidth(1280);
+		primaryStage.setHeight(720);
 
 		new MainMenu();
 		new ExitMenu();
+		new OptionsMenu();
 
-		primaryStage.setScene(MainMenu.getScene());
+		primaryStage.setScene(OptionsMenu.getScene());
 		primaryStage.show();
 	}
 

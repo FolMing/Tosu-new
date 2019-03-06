@@ -77,6 +77,13 @@ public class MainMenu {
 			}
 		});
 
+        mainMenuOptionsButton.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				MainClass.getPrimaryStage().setScene(OptionsMenu.getScene());
+			}
+		});
+
         mainMenuExitButton.onMouseExitedProperty().set(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent e) {
