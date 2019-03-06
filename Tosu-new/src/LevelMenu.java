@@ -41,10 +41,22 @@ public class LevelMenu {
 		VBox vbox = new VBox();
 
 		try {
-			for (int i = 0; i < LevelDirectories.getLevelDirs().length; i++)
-			{
-				Button button = new Button(LevelDirectories.getLevelDirs()[i]);
-				vbox.getChildren().add(button);
+			if (LevelDirectories.getLevelDirs().length == 0) {
+				Label label = new Label("No maps");
+				label.setFont(new javafx.scene.text.Font("Arial", 100));
+				vbox.getChildren().add(label);
+			}
+			else {
+				for (int i = 0; i < LevelDirectories.getLevelDirs().length; i++) {
+					Button button = new Button(LevelDirectories.getLevelDirs()[i]);
+					button.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
+						@Override
+						public void handle(MouseEvent e) {
+							new Game(button.getText());
+						}
+					});
+					vbox.getChildren().add(button);
+				}
 			}
 		}
 		catch (NullPointerException e) {
