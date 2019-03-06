@@ -13,11 +13,14 @@ public class MainClass {
 		primaryStage.setWidth(1280);
 		primaryStage.setHeight(720);
 
+		new LevelDirectories();
 		new MainMenu();
 		new ExitMenu();
 		new OptionsMenu();
+		new LevelMenu();
 
-		primaryStage.setScene(OptionsMenu.getScene());
+
+		primaryStage.setScene(MainMenu.getScene());
 		primaryStage.show();
 	}
 

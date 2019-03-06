@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Optional;
 
 import javafx.event.EventHandler;
@@ -41,13 +42,13 @@ public class MainMenu {
         ImageView mainMenuUserBoundary = ImageViewCreator.Create("Main Menu/user.png", 280, 85);
         mainMenuUserBoundary.setOpacity(0.3);
         mainMenuUserBoundary.setLayoutX(1020);
-        mainMenuUserBoundary.setLayoutY(645);
+        mainMenuUserBoundary.setLayoutY(615);
 
         Label usernameLabel = new Label(User.getUsername());
         usernameLabel.setFont(new javafx.scene.text.Font("Arial", 50));
         usernameLabel.setTextFill(Color.BLACK);
         usernameLabel.setLayoutX(1030);
-        usernameLabel.setLayoutY(655);
+        usernameLabel.setLayoutY(625);
 
         mainMenuPlayButton.onMouseExitedProperty().set(new EventHandler<MouseEvent>() {
 			@Override
@@ -60,6 +61,13 @@ public class MainMenu {
 			@Override
 			public void handle(MouseEvent e) {
 				mainMenuPlayButton.setImage(new Image("/Main Menu/play_button_on.png"));
+			}
+		});
+
+        mainMenuPlayButton.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				MainClass.getPrimaryStage().setScene(LevelMenu.getScene());
 			}
 		});
 
