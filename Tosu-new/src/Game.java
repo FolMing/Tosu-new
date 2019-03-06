@@ -17,7 +17,7 @@ import javafx.scene.paint.Color;
 public class Game {
 	private int combo = 0;
 	private int misses = 0;
-	private double accuracy = 0.0;
+	private double accuracy = 100;
 	private int score = 0;
 	int counter = 0;
 	DecimalFormat format = new DecimalFormat("#.##");
@@ -33,13 +33,19 @@ public class Game {
 		comboLabel.setLayoutX(0);
 		comboLabel.setLayoutY(615);
 
-		Label accuracyLabel = new Label("100.00");
+		Label accuracyLabel = new Label(format.format(accuracy));
 		accuracyLabel.setFont(new javafx.scene.text.Font("Arial", 70));
 		accuracyLabel.setTextFill(Color.WHITE);
 		accuracyLabel.setLayoutX(1050);
 		accuracyLabel.setLayoutY(0);
 
-		ImageView catcher = ImageViewCreator.Create("Game screen/Catcher.png", 292, 188);
+		Label scoreLabel = new Label(String.valueOf(score));
+		scoreLabel.setFont(new javafx.scene.text.Font("Arial", 70));
+		scoreLabel.setTextFill(Color.WHITE);
+		scoreLabel.setLayoutX(0);
+		scoreLabel.setLayoutY(0);
+
+		ImageView catcher = ImageViewCreator.Create("Game screen/Catcher.png", 270, 180);
 		catcher.setLayoutX(500);
 		catcher.setLayoutY(550);
 
@@ -94,11 +100,11 @@ public class Game {
 				{
 					if (currentlyActiveKeys.containsKey("SHIFT"))
 					{
-						catcher.setX(catcher.getX()+40);
+						catcher.setX(catcher.getX()+30);
 					}
 					else
 					{
-						catcher.setX(catcher.getX()+20);
+						catcher.setX(catcher.getX()+15);
 					}
 					if (catcher.getX() > 450)
 					{
@@ -109,11 +115,11 @@ public class Game {
 				{
 					if (currentlyActiveKeys.containsKey("SHIFT"))
 					{
-						catcher.setX(catcher.getX()-40);
+						catcher.setX(catcher.getX()-30);
 					}
 					else
 					{
-						catcher.setX(catcher.getX()-20);
+						catcher.setX(catcher.getX()-15);
 					}
 					if (catcher.getX() < -450)
 					{
@@ -131,7 +137,7 @@ public class Game {
 	        }
 		});
 
-		pane.getChildren().addAll(comboLabel, accuracyLabel, catcher);
+		pane.getChildren().addAll(scoreLabel, comboLabel, accuracyLabel, catcher);
 
 		root.getChildren().addAll(videoMediaView, pane);
 
