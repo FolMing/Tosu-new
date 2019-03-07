@@ -3,12 +3,15 @@ import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -314,13 +317,50 @@ public class Game {
 
 		Pane pane = new Pane();
 
-		Label accLabel = new Label("Accuracy: " + format.format(accuracy));
+		Label accLabel = new Label("Accuracy: " + format.format(accuracy) + "%");
+		accLabel.setFont(new javafx.scene.text.Font("Arial", 50));
+		accLabel.setTextFill(Color.WHITE);
+		accLabel.setLayoutX(50);
+		accLabel.setLayoutY(50);
 
 		Label missesLabel = new Label("Misses: " + misses);
+		missesLabel.setFont(new javafx.scene.text.Font("Arial", 50));
+		missesLabel.setTextFill(Color.WHITE);
+		missesLabel.setLayoutX(50);
+		missesLabel.setLayoutY(200);
 
 		Label scoreLabel = new Label("Score: " + score);
+		scoreLabel.setFont(new javafx.scene.text.Font("Arial", 50));
+		scoreLabel.setTextFill(Color.WHITE);
+		scoreLabel.setLayoutX(50);
+		scoreLabel.setLayoutY(350);
 
-		pane.getChildren().addAll(accLabel, missesLabel, scoreLabel);
+		ImageView backButton = ImageViewCreator.Create("Game screen/back_off.png", 420, 70);
+		backButton.setLayoutX(-100);
+		backButton.setLayoutY(623);
+
+		backButton.onMouseExitedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				backButton.setImage(new Image("Game screen/back_off.png"));
+			}
+		});
+
+		backButton.onMouseEnteredProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				backButton.setImage(new Image("Game screen/back_on.png"));
+			}
+		});
+
+		backButton.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				MainClass.getPrimaryStage().setScene(LevelMenu.getScene());
+			}
+		});
+
+		pane.getChildren().addAll(accLabel, missesLabel, scoreLabel, backButton);
 
 		root.getChildren().add(pane);
 		MainClass.getPrimaryStage().setScene(new Scene(root, 1280, 720));
