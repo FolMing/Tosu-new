@@ -1,7 +1,9 @@
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Bounds;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -19,6 +21,7 @@ public class Game {
 	private int misses = 0;
 	private double accuracy = 100;
 	private int score = 0;
+	private int hits = 0;
 	int counter = 0;
 	DecimalFormat format = new DecimalFormat("#.##");
 
@@ -96,6 +99,23 @@ public class Game {
         	currentlyActiveKeys.remove(event.getCode().toString())
 		);
 
+		ImageView fruit1 = ImageViewCreator.Create("Game screen/Fruit.png", 128, 128);
+		ImageView fruit2 = ImageViewCreator.Create("Game screen/Fruit.png", 128, 128);
+		ImageView fruit3 = ImageViewCreator.Create("Game screen/Fruit.png", 128, 128);
+		ImageView fruit4 = ImageViewCreator.Create("Game screen/Fruit.png", 128, 128);
+		ImageView fruit5 = ImageViewCreator.Create("Game screen/Fruit.png", 128, 128);
+
+		pane.getChildren().add(fruit1);
+		fruit1.setY(-15000);
+		pane.getChildren().add(fruit2);
+		fruit2.setY(-15000);
+		pane.getChildren().add(fruit3);
+		fruit3.setY(-15000);
+		pane.getChildren().add(fruit4);
+		fruit4.setY(-15000);
+		pane.getChildren().add(fruit5);
+		fruit5.setY(-15000);
+
 		AnimationTimer gameTimer = new AnimationTimer() {
 
 			@Override
@@ -131,6 +151,139 @@ public class Game {
 						catcher.setX(-450);
 					}
 				}
+
+				switch(counter)
+				{
+				case 30:
+				{
+					int lastrandom = ThreadLocalRandom.current().nextInt(0, 1100);
+					fruit1.setX((double)lastrandom);
+					fruit1.setY(0);
+					break;
+				}
+				case 60:
+				{
+					int lastrandom = ThreadLocalRandom.current().nextInt(0, 1100);
+					fruit2.setX((double)lastrandom);
+					fruit2.setY(0);
+					break;
+				}
+				case 90:
+				{
+					int lastrandom = ThreadLocalRandom.current().nextInt(0, 1100);
+					fruit3.setX((double)lastrandom);
+					fruit3.setY(0);
+					break;
+				}
+				case 120:
+				{
+					int lastrandom = ThreadLocalRandom.current().nextInt(0, 1100);
+					fruit4.setX((double)lastrandom);
+					fruit4.setY(0);
+					break;
+				}
+				case 150:
+				{
+					int lastrandom = ThreadLocalRandom.current().nextInt(0, 1100);
+					fruit5.setX((double)lastrandom);
+					fruit5.setY(0);
+					counter = 0;
+					break;
+				}
+				}
+
+
+				Bounds CatcherBounds = catcher.getBoundsInParent();
+				Bounds Fruit1Bounds = fruit1.getBoundsInParent();
+				if (CatcherBounds.intersects(Fruit1Bounds))
+			    {
+			    	fruit1.setY(-15000);
+			    	hits++;
+			    	if (combo == 0) score+=300; else score+=300*combo;
+			    	combo++;
+			    }
+				Bounds Fruit2Bounds = fruit2.getBoundsInParent();
+				if (CatcherBounds.intersects(Fruit2Bounds))
+			    {
+					fruit2.setY(-15000);
+					hits++;
+					if (combo == 0) score+=300; else score+=300*combo;
+					combo++;
+			    }
+				Bounds Fruit3Bounds = fruit3.getBoundsInParent();
+				if (CatcherBounds.intersects(Fruit3Bounds))
+			    {
+					fruit3.setY(-15000);
+					hits++;
+					if (combo == 0) score+=300; else score+=300*combo;
+					combo++;
+			    }
+				Bounds Fruit4Bounds = fruit4.getBoundsInParent();
+				if (CatcherBounds.intersects(Fruit4Bounds))
+			    {
+					fruit4.setY(-15000);
+					hits++;
+					if (combo == 0) score+=300; else score+=300*combo;
+					combo++;
+			    }
+				Bounds Fruit5Bounds = fruit5.getBoundsInParent();
+				if (CatcherBounds.intersects(Fruit5Bounds))
+			    {
+					fruit5.setY(-15000);
+					hits++;
+					if (combo == 0) score+=300; else score+=300*combo;
+					combo++;
+			    }
+
+				if (Fruit1Bounds.intersects(0, 720, 1280, 0))
+			    {
+					fruit1.setY(-15000);
+					misses++;
+					combo = 0;
+			    }
+				if (Fruit2Bounds.intersects(0, 720, 1280, 0))
+			    {
+					fruit2.setY(-15000);
+					misses++;
+					combo = 0;
+			    }
+				if (Fruit3Bounds.intersects(0, 720, 1280, 0))
+			    {
+					fruit3.setY(-15000);
+					misses++;
+					combo = 0;
+			    }
+				if (Fruit4Bounds.intersects(0, 720, 1280, 0))
+			    {
+					fruit4.setY(-15000);
+					misses++;
+					combo = 0;
+			    }
+				if (Fruit5Bounds.intersects(0, 720, 1280, 0))
+			    {
+					fruit5.setY(-15000);
+					misses++;
+					combo = 0;
+			    }
+
+				if (misses == 0)
+				{
+					accuracy = 100.0;
+				}
+				else
+				{
+					accuracy = (double)hits/(double)(hits+misses)*100;
+				}
+
+				scoreLabel.setText("Score: " + Integer.toString(score));
+				accuracyLabel.setText(format.format(accuracy) + "%");
+				comboLabel.setText("Combo: " + Integer.toString(combo) + "x");
+
+				fruit1.setY(fruit1.getY()+8);
+				fruit2.setY(fruit2.getY()+8);
+				fruit3.setY(fruit3.getY()+8);
+				fruit4.setY(fruit4.getY()+8);
+				fruit5.setY(fruit5.getY()+8);
 			}
 		};
 
